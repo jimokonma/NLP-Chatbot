@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Raleway', sans-serif;
+    overflow-x: hidden;
+}
+.header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), 
+    url("./images/header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.header-2{
+    width: 100%;
+}
+nav{
+    display: flex;
+    padding: 1% 4% 1% 2%;
+    justify-content: space-between;
+    background-color: hsl(225, 65%, 45%);
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.1);
+    position: relative;
+}
+
+.logo{
+    display: block;
+    width: 5%;
+    margin: 0.25rem 1rem;
+}
+.nav-links{
+    flex: 1;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 11%;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    margin: 0.35rem;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.15rem;
+}
+.active, .nav-links ul li:hover{
+    background-color: rgb(0,0,190);
+    border-radius: 0.05rem;
+}
+.fa-caret-down, .fa-angle-right{
+    display: block;
+    color: white;
+    font-size: 1rem;
+    margin-left: 0.25rem;
+}
+nav .fa-bars, nav .fa-times{
+    display: none;
+}
+.nav-bar h2{
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 1.25rem;
+}
+.nav-bar h2 span{
+    color: gold;
+}
+.sub-menu-1{
+    display: none;
+}
+.nav-links ul li:hover .sub-menu-1{
+    display: block;
+    position: absolute;
+    background-color: hsl(225, 65%, 45%);
+    margin-top: 0.5rem;
+    margin-left: -0.75rem;
+    z-index: 2;
+}
+.nav-links ul li:hover .sub-menu-1 ul{
+    display: block;
+    margin-top: 0.35rem;
+}
+.nav-links ul li:hover .sub-menu-1 ul li{
+    width: 170px;
+    padding: 0.75rem;
+    border-bottom: 1px dotted #ffffff;
+    text-align: left ;
+}
+.nav-links ul li:hover .sub-menu-1 ul li:last-child{
+    border-bottom: none;
+}
+.sub-menu-2{
+    display: none;
+}
+.hover-me:hover .sub-menu-2{
+    position: absolute;
+    display: block;
+    margin-top: -40px;
+    margin-left: 160px;
+    background-color: hsl(225, 65%, 45%);
+}
+.hover-me:hover .sub-menu-2 ul li{
+    width: 70px;
+    padding: 0.35rem;
+}
+@media(max-width: 800px) {
+    nav{
+        padding: 2% 3%;
+    }
+    .nav-bar h2{
+        font-size: 1.25rem;
+        margin-top: 0.45rem;
+    }
+    .logo{
+        width: 12%;
+    }
+    .nav-links{
+        overflow-y: auto;
+    }
+    .nav-links ul li{
+        display: block;
+        margin: 1rem;
+    }
+    .nav-links{
+        position: fixed;
+        top: 0%;
+        right: 0%;
+        background: hsl(225, 65%, 45%);
+        width: 100%;
+        height: 100vh;
+        transition: transform 0.3s linear;
+        transform: translate(100%);
+        z-index: 2;
+        text-align: left;
+        margin-top: 0px;
+    }
+    .show-sidebar{
+        transform: translate(0);
+    }
+    nav .fa-times, nav .fa-bars{
+        display: block;
+        color: white;
+        margin-top: 1.25rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    nav .fa-times{
+        margin-left: 1.25rem;
+    }
+    .nav-links ul li{
+        padding: 1rem;  
+    }
+    .nav-links ul li:hover .sub-menu-1{
+        margin-top: 15px;
+    }
+    .nav-links ul li:hover .sub-menu-1 ul li{
+        width: 200px;
+        padding: 1.25rem;
+    }
+    .fa-caret-down{
+        display: none;
+    }
+    .hover-me:hover .sub-menu-2{
+        display: block;
+        margin-top: -55px;
+        margin-left: 180px;
+    }
+}
+
+/* Vision */
+.slideshow-container{
+    width: 100%;
+    margin: 8% auto;
+    color: #ffffff;
+    text-align: center;
+}
+.slideshow{
+    display: none;
+}
+.mission{
+    display: block;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 43%;
+    width: auto;
+    margin-top: -1.75rem;
+    padding: 1.25rem;
+    color: white;
+    font-weight: 200;
+    font-size: 1.75rem;
+    transition: 0.6s ease;
+    border-radius: 0 0.25rem 0.25rem 0;
+    user-select: none;
+    font-weight: 200;
+}
+.prev{
+    left: -0.5rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+.next {
+    right: 0rem;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+.vision, .mission, .history{
+    width: 75%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+.slideshow h3{
+    font-size: 3.5rem;
+    padding-bottom: 0.75rem;
+}
+.slideshow p{
+    font-weight: 200;
+    margin: 1rem 0px 2.25rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: center;
+    word-spacing: 0.1rem;
+    letter-spacing: 0.1rem;
+}
+
+.dot-div{
+    position: absolute;
+    bottom: 1rem;
+    left: 48%;
+}
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: hsl(225, 65%, 35%);
+}
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+@media(max-width: 800px) {
+    .slideshow{
+        width: 80%;
+        margin: auto;
+    }
+    .slideshow h3{
+        font-size: 2rem;
+    }
+    .slideshow p{
+        line-height: 1.75rem;
+    }
+    .dot-div{
+        position: absolute;
+        bottom: 0.35rem;
+        left: 45%;
+    }
+    .next{
+        right: -0.25rem;
+    }
+}
+
+/* Campus */
+.campus{
+    width: 85%;
+    margin: 3% auto 6%;
+    text-align: center; 
+}
+.campus .row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.campus-col{
+    border-radius: 10px;
+    margin: 1.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+.campus-col img{
+    width: 100%;
+    display: block;
+}
+.layer{
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+.layer:hover{
+    background: rgba(14, 87, 197, 0.7);
+}
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: 0.5s;
+}
+.layer:hover h3{
+    bottom: 49%;
+    opacity: 1;
+}
+@media screen and (max-width: 800px) {
+    .campus .row{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+
+/* HISTORY */
+.our-history{
+    width: 85%;
+    margin: 4% auto;
+}
+.col{
+    padding: 1rem;
+}
+.col h2{
+    font-size: 2.75rem;
+    color: black;
+    padding-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+.col p{
+    font-size: 17px;
+    line-height: 30px;
+    word-spacing: 0.1rem;
+    text-align: start;
+}
+@media screen and (max-width: 760px) {
+    .our-history{
+        width: 100%;
+        margin: 13% auto 2%;
+    }
+    .col{
+        padding: 3.5rem;
+    }
+    .col h2{
+        font-size: 1.75rem;
+    }
+    .col p{
+        font-size: 1rem;
+        line-height: 1.85rem;
+    }
+}
+
+/* SECTIONAL HEADS */
+.sectional-heads{ 
+    width: 90%;
+    margin: 4% auto; 
+}
+.sectional-heads .row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+.sectional-heads h2, .campus h1{
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 0px;
+}
+.sectional-heads .column{
+    margin: 15px;
+    border: 1px solid black;
+    padding: 0.5rem;
+    height: 350px;
+}
+.sectional-heads .column img{
+    width: 30%;
+    height: 30%;
+    position: relative;
+    left: 37%;
+    margin: 1rem 0px;
+}
+.sectional-heads .column h3{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+}
+.sectional-heads .column h4, h5, p{
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.75rem;
+}
+.sectional-heads .column span{
+    font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+    .sectional-heads {
+        margin-top: 8%;
+    }
+    .sectional-heads .row{
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+    .sectional-heads .column{
+        margin: 1.25rem;
+        padding: 1rem 0.5rem;
+        width: 100%;
+        height: 400px
+    }
+    .column h3{
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
+
+.pg-program{
+    width: 80%;
+    margin: 4% auto;
+}
+
+/* STAFF LIST */
+.staffList {
+    width: 70%;
+    margin: 4% auto;
+}
+table{
+    width: 100%;
+}
+table, th, td{
+    border: 1px solid black;
+    padding: 1rem;
+    font-size: 17px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-align: center;
+}
+.colspan{
+    white-space: normal;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+table { 
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 768px){
+   .staffList{
+       width: 90%;
+       margin: 8% auto 5%;
+   } 
+   .undergraduates{
+       width: 90%;
+       margin: 8% auto 5%;
+   }
+   .list-1{
+        font-size: 14px;
+        line-height: 25px;   
+    }
+}
+.postgraduate h3{
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+.staffList h3, .campus h3,  .general-regulations h3, .staffList h3, .degree h3, .undergraduates h3, .programmes h3,
+.phd h3{
+    font-size: 1.75rem;
+    text-align: center;
+    padding-bottom: 0.85rem;
+}
+main{
+    width: 85%;
+    margin: 4% auto;
+}
+main h1, .staffList h1, .general-regulations h1, .phd h1{
+    font-size: 2rem;
+    text-align: center;
+    padding: 1rem 0px;
+}
+.philosophy h2, .objectives h2, .program-structure h2, .programmes h2, .postgraduate h2, .undergraduates h2,
+.degree h2, .general-regulations h2, .pg-program h2, .phd h2{
+    font-size: 1.85rem;
+    text-align: center;
+    padding: 1rem 0px 1.25rem;
+}
+.philosophy p, .objectives p, .undergraduates p, .programmes p, .general-regulations p, .postgraduate p, .degree p,
+.objectives li, .undergraduates li, .pg-program p, .phd p{
+    text-align: start;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 0.75rem;
+    word-spacing: 0.2rem;
+}
+.list-1{
+    margin-left: 5%;
+    font-size: 18px;
+    line-height: 30px;   
+}
+ol li{
+    padding-bottom: 0.5rem;
+}
+.list-2{
+    margin-left: 5%;
+}
+.list-3{
+    margin-left: 3%;
+}
+
+/* UNDERGRADUATE */
+.program-structure{
+    width: 70%;
+    margin: 4% auto;
+}
+@media screen and (max-width: 768px) {
+    .program-structure{
+        width: 97%;
+        margin: 3% auto;
+    }
+    .program-structure table{
+        width: 100%;
+    }
+    .program-structure table, th, td{
+        border: 1px solid black;
+        font-size: 12px;
+        line-height: 25px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .philosophy p, .objectives p, .undergraduates p, .programmes p, .general-regulations p, 
+    .postgraduate p, .degree p, .objectives li, .undergraduates li, .programmes li{
+        font-size: 0.95rem;
+        line-height: 25px;
+        padding-bottom: 0.5rem;
+        word-spacing: 0.1rem;
+        letter-spacing: 0.1rem;
+    }
+    main h1, .general-regulations h1{
+        font-size: 1.35rem;
+        text-align: center;
+        padding: 1rem 0px;
+    }
+    .philosophy h2, .objectives h2, .program-structure h2, .programmes h2, 
+    .postgraduate h2, .general-regulations h2, .degree h2{
+        font-size: 1.25rem;
+        text-align: center;
+        padding: 1rem 0px 0.75rem;
+        line-height: 1.85rem;
+    }
+    .staffList h3, .campus h3, .degree h3, .general-regulations h3, .postgraduate h3{
+        font-size: 1.05rem;
+        line-height: 1.75rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* POSTGRADUATE */
+.programmes{
+    margin: 3% auto;
+    width: 80%;
+}
+.postgraduate{
+    width: 75%;
+    margin: 3% auto;
+}
+@media screen and (max-width: 768px) {
+    .programmes{
+        margin: 8% auto 5%;
+        width: 90%;
+    }
+    .general-regulations, .degree{
+        width: 95%;
+    }
+    .general-regulations table{
+        width: 100%;
+    }
+}
+.general-regulations{
+    width: 75%;
+    margin: 4% auto;
+}
+
+.degree, .phd{
+    width: 80%;
+    margin: 4% auto;
+}
+
+
+/* FOOTER */
+.footer{
+    width: 100%;
+    height: 17vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 0;
+}
+.footer-bar ul{
+    margin: 0.25rem 4rem;
+}
+.footer-bar ul li{
+    list-style: none;
+    padding: 0.5rem; 
+}
+.footer-bar ul li a{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+}
+@media screen and (max-width: 700px) {
+    .footer{
+        justify-content: space-evenly;
+    }
+    .footer-bar ul{
+        margin: 0.25rem;
+    }
+    .footer-bar ul li{
+        line-height: 25px;
+        padding: 0.25rem;
+    }
+}
